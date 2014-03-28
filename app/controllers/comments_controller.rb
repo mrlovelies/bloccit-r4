@@ -16,6 +16,8 @@ class CommentsController < ApplicationController
     else
       flash[:error] = "There was an error saving the comment. Please try again."
     end
+
+    redirect_to :back
   end
 
   def destroy
@@ -26,14 +28,14 @@ class CommentsController < ApplicationController
     authorize @comment
     if @comment.destroy
       flash[:notice] = "Comment was removed."
-      redirect_to [@topic, @post]
+      # redirect_to [@topic, @post]
     else
       flash[:error] = "Comment couldn't be deleted. Please try again."
-      redirect_to [@topic, @post]
+      # redirect_to [@topic, @post]
     end
-  end
 
-  # redirect_to :back
+    redirect_to :back
+  end
 
   private
 

@@ -28,6 +28,9 @@ end
 			body: Faker::Lorem.paragraph)
 		# Set date created within the last year
 		post.update_attribute(:created_at, Time.now - rand(600..31536000))
+
+		post.update_rank
+		topics.rotate!
 	end
 end
 
