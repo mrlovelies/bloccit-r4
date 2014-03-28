@@ -37,7 +37,7 @@ User.all.each do |user|
 		post = Post.find(rand(1..post_count))
 		comment = user.comments.create(
 			body: Faker::Lorem.paragraph,
-			post: post)
+			post_id: post.id)
 		comment.update_attribute(:created_at, Time.now - rand(600..31536000))
 	end
 end

@@ -1,6 +1,4 @@
 class CommentsController < ApplicationController
-  def new
-  end
 
   def create
     @topic = Topic.find( params[:topic_id] )
@@ -19,6 +17,10 @@ class CommentsController < ApplicationController
       flash[:error] = "There was an error saving the comment. Please try again."
     end
   end
+
+  redirect_to :back
+
+  private
 
   def comment_params
     params.require(:comment).permit(:body, :post_id)

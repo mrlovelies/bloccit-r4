@@ -32,10 +32,8 @@ ActiveRecord::Schema.define(version: 20140327160418) do
     t.integer  "user_id"
     t.integer  "topic_id"
     t.string   "image"
-    t.integer  "post_id"
   end
 
-  add_index "posts", ["post_id"], name: "index_posts_on_post_id"
   add_index "posts", ["topic_id"], name: "index_posts_on_topic_id"
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
